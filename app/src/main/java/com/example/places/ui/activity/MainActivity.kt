@@ -1,5 +1,6 @@
 package com.example.places.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -13,7 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        addFragment(fragment)
+//        addFragment(fragment)
+        showMapsActivity()
     }
 
     private fun addFragment(fragment: Fragment){
@@ -21,4 +23,10 @@ class MainActivity : AppCompatActivity() {
         manager.add(R.id.activity_container, fragment)
         manager.commit()
     }
+
+    private fun showMapsActivity(){
+        val intent = Intent(baseContext, MapsActivity::class.java)
+        startActivity(intent)
+    }
+
 }
